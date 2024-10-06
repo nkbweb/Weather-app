@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('bodyimg.jpeg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.weather-app {
+    background: linear-gradient(to bottom right, rgba(191, 240, 152, 0.9), rgba(111, 214, 255, 0.9)); /* Adjusted opacity */
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #000;
+    width: 90%; 
+    max-width: 400px; 
+}
+
+.app-heading {
+    font-size: 26px; /* Slightly larger heading */
+    margin-bottom: 20px;
+    color: aqua;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input {
+    height:23px; /* Increased height for better touch */
+    padding: 10px;
+    padding-left: 20px; 
+    font-size: 16px;
+    border: 1px solid #0072ff;
+    border-radius: 25px; 
+    margin-right: 10px; 
+    flex-grow: 1; /* Allow input to take available space */
+    box-shadow: none; 
+}
+
+button {
+    padding: 10px;
+    height: 40px; /* Match input height */
+    width: 40px; /* Adjust button size */
+    background-color: #007BFF;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Add transition */
+}
+
+button:hover {
+    background-color: #0056b3; 
+}
+
+#weather-info {
+    margin-top: 20px; 
+}
+
+.search-icon {
+    width: 20px;
+}
+
+.hidden {
+    display: none; 
+}
+
+.weather-icon {
+    width: 120px; /* Increased size of the icon */
+    margin-bottom: 10px; 
+}
+
+h1 {
+    color: white;
+    font-size: 48px; 
+    margin: 10px 0; 
+}
+
+h2 {
+    color: whitesmoke;
+    margin: 5px 0; 
+}
+
+.additional-info {
+    color: whitesmoke;
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 20px; 
+}
+
+.info-item {
+    display: flex; 
+    align-items: center; 
+}
+
+.info-icon {
+    width: 30px; 
+    margin-right: 5px; 
+}
+
+#error-message {
+    color: red; /* Error message color */
+    margin-top: 10px;
+}
+.nkb{
+    color:red;
+}
+@media (min-width: 768px) {
+    .weather-app {
+        width: 600px; /* Increased width for desktop */
+        padding: 60px 40px; /* More padding for spaciousness */
+    }
+
+    input {
+        height: 40px; /* Increased height for better visibility */
+        font-size: 18px; /* Larger font size for desktop */
+        width: calc(100% - 80px); /* Adjusted width for better layout */
+    }
+
+    button {
+        height: 60px; /* Increased button height */
+        width: 60px; /* Keep button width */
+    }
+
+    h1 {
+        font-size: 72px; /* Larger font size for temperature text */
+    }
+    h2 {
+        font-size: 28px; /* Larger font size for city name */
+    }
+
+    .additional-info {
+        flex-direction: column; /* Stack items in additional info */
+        align-items: center; /* Center align for better layout */
+    }
+
+    .info-item {
+        margin-bottom: 10px; /* Spacing between info items */
+    }
+  }
