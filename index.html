@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <div class="weather-app">
+        <h1 class="app-heading"><span class="nkb">   
+            NKB
+        </span> Weather App</h1> 
+        <div class="search-container">
+            <input type="text" id="city-input" placeholder="Enter city name" />
+            <button id="search-btn">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png" alt="Search Icon" class="search-icon"/>
+            </button>
+        </div>
+        <div id="weather-info" class="hidden">
+            <img id="weather-icon" class="weather-icon" src="" alt="Weather Icon">
+            <h1 id="temperature"></h1>
+            <h2 id="city-name"></h2>
+            <div class="additional-info">
+                <div class="info-item">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/humidity.png" alt="Humidity Icon" class="info-icon"/>
+                    <span id="humidity"></span>%
+                </div>
+                <div class="info-item">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/wind.png" alt="Wind Speed Icon" class="info-icon"/>
+                    <span id="wind-speed"></span> m/s
+                </div>
+            </div>
+        </div>
+        <div id="error-message" class="hidden"></div> <!-- Added error message div -->
+    </div>
+    <script src="weather.js"></script>
+</body>
+</html>
