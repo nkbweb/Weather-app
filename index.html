@@ -1,40 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="weather.css">
+  <!-- Link to RemixIcon for icons -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+  <!-- Meta tags for character set and responsive design -->
+  <meta charset="UTF-8">
+  <!-- Google Fonts (Poppins) -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title of the webpage -->
+  <title>Weather app</title>
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="body.css">
+ <link rel="stylesheet" href="popup.css">
+<link rel="stylesheet" href="footer.css">
+
 </head>
 <body>
-    <div class="weather-app">
-        <h1 class="app-heading"><span class="nkb">   
-            NKB
-        </span> Weather App</h1> 
-        <div class="search-container">
-            <input type="text" id="city-input" placeholder="Enter city name" />
-            <button id="search-btn">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png" alt="Search Icon" class="search-icon"/>
-            </button>
-        </div>
-        <div id="weather-info" class="hidden">
-            <img id="weather-icon" class="weather-icon" src="" alt="Weather Icon">
-            <h1 id="temperature"></h1>
-            <h2 id="city-name"></h2>
-            <div class="additional-info">
-                <div class="info-item">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/humidity.png" alt="Humidity Icon" class="info-icon"/>
-                    <span id="humidity"></span>%
-                </div>
-                <div class="info-item">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/wind.png" alt="Wind Speed Icon" class="info-icon"/>
-                    <span id="wind-speed"></span> m/s
-                </div>
-            </div>
-        </div>
-        <div id="error-message" class="hidden"></div> <!-- Added error message div -->
+  <div class="popup-overlay" id="popupOverlay">
+  <div class="popup-box">
+    <h2>Welcome to वायुवाणी</h2>
+    <p>Get real-time updates on weather, air quality, and more.  
+       Explore our interactive maps and stay informed with live reports.</p>
+    <p class="popup-button">Click anywhere to continue!</p>
+  </div>
+</div>
+
+  <!-- Header section containing navigation -->
+  <header id="header">
+    <nav>
+      <!-- Logo section with image and text -->
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo"> <!-- Replace with your logo -->
+        <div class="vayuvani">वायुवाणी</div>
+      </div>
+      <!-- Menu icon for mobile view -->
+      <div class="menu-icon" id="menuIcon">
+        <span class="menu-bar">☰</span>
+      </div>
+      <!-- Navigation links with icons and text -->
+      <ul class="nav-links" id="navLinks">
+        <li>
+          <a href="#header">
+            <i class="ri-home-7-fill"></i> 
+            <p>Home</p>
+          </a>
+        </li>
+        <li>
+          <a href="#map">
+            <i class="ri-map-pin-2-fill"></i> 
+            <p>Map</p>
+          </a>
+        </li>
+        <li>
+          <a href="#header">
+            <i class="ri-snowy-fill"></i>
+            <p>Weather</p>
+          </a>
+        </li>
+        <li>
+          <a href="#cityInput">
+            <i class="ri-search-eye-fill"></i>
+            <p>Search</p>
+          </a>
+        </li>
+        <li>
+          <a href="#footer">
+            <i class="ri-contacts-fill"></i>
+            <p>Contact</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <div class="search-section">
+    
+  <div class="search-box">
+    <input 
+      type="text" 
+      id="cityInput" 
+      placeholder="Jammu,Jammu & Kashmir..." 
+      oninput="handleTyping()" 
+      onfocus="showDropdown()" 
+    >
+    <button id="searchButton"><i class="ri-search-line"></i></button>
+  </div>
+
+  <ul id="cityDropdown" class="dropdown">
+    <li onclick="selectCity('Delhi')">Delhi</li>
+    <li onclick="selectCity('Bangalore')">Bangalore</li>
+    <li onclick="selectCity('Chennai')">Chennai</li>
+    <li onclick="selectCity('Mumbai')">Mumbai</li>
+    <li onclick="selectCity('Kolkata')">Kolkata</li>
+  </ul>
+</div>
+
+  
+  
+  <section class="weather-section">
+  <!-- Today's Weather -->
+  <div class="today-weather">
+    <div class="weather-icon">
+      <i id="todayIcon" class="ri-question-fill"></i> <!-- Dynamic icon -->
     </div>
-    <script src="weather.js"></script>
+    <div class="weather-details">
+      <h1 class="temperature" id="todayTemp">--°C</h1>
+      <p class="location" id="todayLocation">Jammu, Jammu and Kashmir</p>
+    </div>
+    <div class="location-map" id="map">
+      <iframe
+        id="locationMap"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3375.919684030993!2d74.86641531516716!3d32.20648148114844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e2f5b8b1a0a9f%3A0x3b9a1d1b6f1b0b0b!2sJammu%2C%20Jammu%20and%20Kashmir!5e0!3m2!1sen!2sin!4v1691234567890!5m2!1sen!2sin"
+        width="100%"
+        height="150"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- 5-Day Forecast -->
+  <div class="forecast">
+    <h2>5-Day Forecast</h2>
+    <div class="forecast-list" id="forecastList">
+      <!-- Forecast items will be dynamically added here -->
+    </div>
+  </div>
+</section>
+  
+  
+  <!-- Wind Speed Section -->
+<div class="wind-section">
+  <h2>Wind</h2>
+  <div class="wind-details">
+    <p>Speed: <span id="windSpeed">-- m/s</span></p>
+    <p>Direction: <span id="windDirection">--°</span></p>
+  </div>
+</div>
+
+<!-- Air Quality Section -->
+<div class="air-quality-section">
+  <h2>Air Quality</h2>
+  <div class="air-quality-details">
+    <p>AQI: <span id="airQualityIndex">--</span></p>
+    <p>Level: <span id="airQualityLevel">--</span></p>
+  </div>
+</div>
+
+<!-- Sunrise & Sunset Section -->
+<div class="sun-times-section">
+  <h2>Sunrise & Sunset</h2>
+  <div class="sun-times-details">
+    <p>Sunrise: <span id="sunriseTime">--:--</span></p>
+    <p>Sunset: <span id="sunsetTime">--:--</span></p>
+  </div>
+</div>
+  
+  
+  
+  
+  <footer class="footer" id="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <h2>वायुवाणी</h2>
+      <p>Your trusted weather companion</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Weather API</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="#" class="social-icon"><i class="ri-twitter-x-line"></i></a>
+      <a href="#" class="social-icon"><i class="ri-instagram-line"></i></a>
+      <a href="#" class="social-icon"><i class="ri-mail-line"></i></a>
+      <a href="#" class="social-icon"><i class="ri-facebook-line"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 वायुवाणी | All Rights Reserved</p>
+  </div>
+</footer>
+
+  
+  <!-- Link to external JavaScript file -->
+  <script src="script.js"></script>
 </body>
 </html>

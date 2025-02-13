@@ -1,0 +1,105 @@
+/* Weather Section */
+.weather-section {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.today-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.weather-icon i {
+  font-size: 64px;
+  color: #ffa726; /* Default icon color */
+}
+
+.temperature {
+  font-size: 48px;
+  margin: 10px 0;
+  color: #2E3A87;
+}
+
+.location {
+  font-size: 24px;
+  color: #666;
+}
+
+.location-map iframe {
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.forecast {
+  margin-top: 30px;
+}
+
+.forecast h2 {
+  font-size: 24px;
+  color: #2E3A87;
+  margin-bottom: 15px;
+}
+
+.forecast-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.forecast-item {
+  flex: 1;
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.forecast-item .day {
+  font-size: 18px;
+  color: #2E3A87;
+}
+
+.forecast-item i {
+  font-size: 32px;
+  color: #ffa726;
+  margin: 10px 0;
+}
+
+.forecast-item .temp-range {
+  font-size: 16px;
+  color: #666;
+}
+
+
+
+/* Wind Section */
+.wind-section,
+.air-quality-section,
+.sun-times-section {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.wind-section h2,
+.air-quality-section h2,
+.sun-times-section h2 {
+  font-size: 20px;
+  color: #2E3A87;
+  margin-bottom: 10px;
+}
+
+.wind-details p,
+.air-quality-details p,
+.sun-times-details p {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
